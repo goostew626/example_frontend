@@ -1,0 +1,72 @@
+@import "../util/themes.scss";
+@import "../util/fancy.scss";
+
+/* general */
+
+html, body, .contentWrapper, .content {
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+h1, h2, h3, h4, h5, p, span, label, button, input, select, textarea {
+    display:block;
+    margin:0;
+    padding:0;
+    border:none;
+    outline:none;
+    background-color:transparent;
+    text-decoration:none;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+div, span, label, button, input, select, textarea {
+    box-sizing: border-box;
+}
+
+textarea {
+    resize:none;
+}
+
+select {
+    padding-right:40px !important;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    appearance:none;
+    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3Cpolygon points='0,0 20,0 10,10' fill='%23CCCCCC' /%3E%3C/svg%3E");
+    background-repeat:no-repeat, repeat;
+    background-position:right 9px top 50%, 0 0;
+    background-size:10px auto, 100%;
+}
+
+@media only screen and (max-width:700px) {
+    div, a, button, span {
+        -webkit-touch-callout:none;
+        -webkit-user-select:none;
+        -khtml-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        user-select:none;
+        -webkit-tap-highlight-color:transparent;
+    }
+}
+
+/* color */
+
+.content {
+    @include themify($themes) { background-color:themed("background"); }
+}
+
+h1, h2, h3, h4, h5, p, label, button, input, select, textarea {
+    @include themify($themes) { color:themed("mainText"); }
+}
+
+/* text */
+
+h1, h2, h3, h4, h5, p, button, label, input, select, textarea {
+    font-family:"ubuntu-regular", sans-serif;
+    font-size:0.85em;
+}

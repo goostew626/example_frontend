@@ -1,0 +1,38 @@
+@import "../util/themes.scss";
+@import "../util/fancy.scss";
+
+@mixin buttonHover($background:"focus") {
+    @include rounded;
+    @include themify($themes) { background-color:darken(themed($background), 4%); }
+    @if not ($background == "themegreen" && $background == "themered") {
+        i, p {
+            @include themify($themes) { color:themed("accent"); }
+        }
+    } else {
+        i, p {
+            color:"#EEEEEE";
+        }
+    }
+    transition:background-color 0.2s ease-out;
+    i, p {
+        transition:color 0.2s ease-out;
+    }
+}
+
+@mixin buttonActive($background:"focus") {
+    @include rounded;
+    @include themify($themes) { background-color:darken(themed($background), 15%); }
+    @if not ($background == "themegreen" && $background == "themered") {
+        i, p {
+            @include themify($themes) { color:darken(themed("accent"), 15%); }
+        }
+    } else {
+        i, p {
+            color:"#DDDDDD";
+        }
+    }
+    transition:background-color 0.0s ease-out;
+    i, p {
+        transition:color 0.0s ease-out;
+    }
+}

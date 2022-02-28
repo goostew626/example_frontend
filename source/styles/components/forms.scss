@@ -1,0 +1,172 @@
+@import "../util/themes.scss";
+@import "../util/fancy.scss";
+@import "../components/controls.scss";
+
+/* color */
+
+form {
+    @include themify($themes) { border-color:themed("active"); }
+}
+
+form input,
+form textarea,
+form select {
+    @include themify($themes) { background-color:themed("active"); }
+}
+
+form .checkbox.unchecked {
+    @include themify($themes) { color:themed("themered"); }
+}
+
+form .checkbox.checked {
+    @include themify($themes) { color:themed("themegreen"); }
+}
+
+.formActions button.accept {
+    @include themify($themes) { background-color:themed("themegreen"); }
+    color:#FFFFFF;
+}
+
+.formActions button.accept:hover {
+    @include buttonHover($background:"themegreen");
+}
+
+.formActions button.accept:active {
+    @include buttonActive($background:"themegreen");
+}
+
+.formActions button.cancel {
+    @include themify($themes) { background-color:themed("themered"); }
+    color:#FFFFFF;
+}
+
+.formActions button.cancel:hover {
+    @include buttonHover($background:"themered");
+}
+
+.formActions button.cancel:active {
+    @include buttonActive($background:"themered");
+}
+
+form input.invalid,
+form textarea.invalid,
+form select.invalid {
+    @include themify($themes) { border-color:themed("themered"); }
+}
+
+/* position */
+
+.formWrapper,
+form {
+    display:table;
+}
+
+form {
+    @include rounded;
+    padding:30px 40px 30px 40px;
+    border-style:solid;
+    border-width:2px;
+}
+
+.formTitle > div {
+    padding:0 0 15px 0;
+}
+
+.formTitle p {
+    font-family:"ubuntu-bold", sans-serif;
+    font-size:1.15em;
+}
+
+form .row {
+    display:table-row;
+}
+
+form .cell {
+    display:table-cell;
+    padding:0 0 15px 0;
+    vertical-align:middle;
+}
+
+form .cell:first-child {
+    padding:0 20px 15px 0;
+}
+
+form .row:last-child .cell {
+    padding-bottom:0;
+}
+
+form input,
+form textarea,
+form select {
+    @include rounded;
+    padding:5px 15px 5px 15px;
+    border-style:solid;
+    border-width:2px;
+    border-color:transparent;
+}
+
+form input,
+form select {
+    height:30px;
+}
+
+form input,
+form textarea {
+    width:100%;
+}
+
+form input[type=checkbox] {
+    clip:rect(0 0 0 0);
+    clip-path:inset(50%);
+    height:1px;
+    width:1px;
+    overflow:hidden;
+    position:absolute;
+    white-space:no-wrap;
+}
+
+form .checkboxLabel {
+    display:table;
+}
+
+form .checkbox {
+    @include rounded;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:30px;
+}
+
+form .checkbox i {
+    font-size:30px;
+    display:inline-block;
+}
+
+.formActions {
+    display:flex;
+    justify-content:flex-end;
+    padding:15px 0 0 0;
+}
+
+.formActions > div:first-child {
+    padding:0 10px 0 0 ;
+}
+
+.formActions button {
+    @include rounded;
+    padding:5px 15px 5px 15px;
+}
+
+/* responsive */
+
+@media only screen and (max-width:1000px) {
+
+}
+
+
+@media only screen and (max-width:700px) {
+
+}
+
+/* transitions */
+

@@ -1,0 +1,106 @@
+@import "../util/themes.scss";
+@import "../util/fancy.scss";
+@import "../components/controls.scss";
+
+/* color */
+
+.overlay .overlayClose button {
+    @include themify($themes) { background-color:themed("main"); }
+    @include themify($themes) { border:solid 2px themed("background"); }
+}
+
+.overlay .overlayClose button:hover {
+    @include buttonHover($background:"main");
+}
+
+.overlay .overlayClose button:active {
+    @include buttonActive($background:"main");
+}
+
+.overlay .overlayContent {
+    @include themify($themes) { background-color:themed("background"); }
+}
+
+/* position */
+
+.overlayWrapper {
+    position:fixed;
+    top:0;
+    height:100vh;
+    width:100%;
+    overflow:auto;
+}
+
+.overlayWrapper .overlay {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    min-height:100%;
+    padding:100px 50px 100px 50px;
+}
+
+.overlay .overlayClose {
+    position:sticky;
+    top:0;
+}
+
+.overlay .overlayClose button {
+    width:100%;
+    @include rounded;
+    padding:5px 20px 5px 20px;
+}
+
+.overlay .overlayContent {
+    @include rounded;
+    width:100%;
+    max-width:800px;
+}
+
+.overlay .overlayContent .overlayContains {
+    display:flex;
+    justify-content:center;
+    padding:20px;
+}
+
+.overlayWrapper .overlay {
+    left:-100%;
+}
+
+.overlayWrapper {
+    height:0;
+    @include themify($themes) { background-color:rgba(0, 0, 0, 0.0) }
+}
+
+.overlayWrapper.show {
+    height:100vh;
+    @include themify($themes) { background-color:rgba(0, 0, 0, 0.5) }
+}
+
+.overlayWrapper.show .overlay {
+    left:0;
+}
+
+/* responsive */
+
+@media only screen and (max-width:1000px) {
+
+}
+
+@media only screen and (max-width:700px) {
+
+    .overlayWrapper .overlay {
+        padding:100px 25px 100px 25px;
+    }
+
+}
+
+/* transitions */
+
+.overlayWrapper {
+    transition:background-color 0.2s ease-out;
+}
+
+.overlayWrapper .overlay {
+    transition:left 0.2s ease-out, padding 0.2s ease-out;
+}

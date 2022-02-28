@@ -1,0 +1,103 @@
+@import "../util/themes.scss";
+@import "../util/fancy.scss";
+
+/* color */
+
+.notify .info > div {
+    @include themify($themes) { background-color:themed("background"); }
+}
+
+.notify .error > div {
+    @include themify($themes) { background-color:themed("themered"); };
+    p {
+        color:#FFFFFF;
+    }
+}
+
+/* position */
+
+.notify {
+    z-index:99;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    padding:0 0 0 10%;
+}
+
+.notify .info,
+.notify .error {
+    display:table;
+    position:relative;
+    left:-100%;
+}
+
+.notify .info.show,
+.notify .error.show {
+    padding:0 0 25px 0;
+    left:0;
+}
+
+.notify .info.show > div,
+.notify .error.show > div {
+    @include rounded;
+    @include shadow;
+}
+
+.notify .panel {
+    min-height:0;
+}
+
+.notify .show .panel {
+    display:flex;
+    justify-content:flex-end;
+    min-height:20px;
+    width:100%;
+}
+
+.notify .panel button {
+    display:none;
+    padding:0 8px 0 8px;
+}
+
+.notify .show .panel button {
+    display:block;
+}
+
+.notify .show p {
+    padding:0 25px 0 25px;
+}
+
+/* responsive */
+
+@media only screen and (max-width:1000px) {
+
+    .notify {
+        padding:0 0 0 50px;
+    }
+
+}
+
+
+@media only screen and (max-width:700px) {
+
+    .notify {
+        padding:0 25px 0 25px;
+    }
+
+    .notify .info,
+    .notify .error {
+        width:100%;
+    }
+
+}
+
+/* transitions */
+
+.notify {
+    transition:padding 0.2s ease-out;
+}
+
+.notify .info,
+.notify .error {
+    transition:left 0.2s ease-out, padding 0.2s ease-out;
+}
